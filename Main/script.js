@@ -36,6 +36,7 @@ request.send();
 }
 
 function populateHeader(xmlObj) {
+	header.innerHTML = "";
 	var myH1 = document.createElement('h1');
 	var myText = xmlObj.getElementsByTagName("name")[0].childNodes[0].nodeValue;
 	myH1.textContent = `The weather in ${myText} is: `;
