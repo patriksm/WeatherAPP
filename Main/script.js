@@ -40,7 +40,6 @@ function populateHeader(xmlObj) {
 	var myH1 = document.createElement('h1');
 	var myText = xmlObj.getElementsByTagName("name")[0].childNodes[0].nodeValue;
 	myH1.textContent = `The weather in ${myText} is: `;
-	//myH1.textContent = "The weather in "+xmlObj.getElementsByTagName("name")[0].childNodes[0].nodeValue+" is: ";
 	header.appendChild(myH1);
 	var myH2 = document.createElement('h1');
 	myH2.textContent = xmlObj.getElementsByTagName("temp_c")[0].childNodes[0].nodeValue;
