@@ -4,20 +4,13 @@ let myCity = "Riga";
 
 function validateForm() {
 	let myCity = document.forms["cityName"]["myCity"].value;
-		//console.log(myCity);
 		if (myCity == "") {
 			myCity = "Riga";
-			//return false;
 		}
 	getResponse(myCity);
 	}
 
 var x = document.getElementById('cityName');
-//myCity = x.value;
-//console.log(myCity);
-//var myCity = "Tashkent";
-//var myCity = document.getElementById('city');
-
 
 function getResponse(myCity){
 	console.log(myCity);
@@ -55,5 +48,3 @@ function populateHeader(xmlObj) {
 	myIMG.src = "https:"+xmlObj.getElementsByTagName("icon")[0].childNodes[0].nodeValue;
 	header.appendChild(myIMG);
 }
-
-//let s = setInterval(getResponse(myCity), 100);

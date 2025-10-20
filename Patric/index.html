@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Weather</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+	<form name="cityName" onsubmit="return validateForm()" method='post'>
+		<label>Enter the city name</label>
+		<input type="text" ng-model="myCity" id="city" name="myCity">
+		<input type="submit" value="Submit">
+	</form>
+	<!-- <p id="cityName">{{myCity}}</p> -->
+	<header></header>
+	<section></section>
+	<script src="script.js"></script>
+</body>
+</html>
