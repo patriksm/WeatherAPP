@@ -1,4 +1,5 @@
 var header=document.querySelector('header');
+
 const data = null;
 
 const xhr = new XMLHttpRequest();
@@ -22,9 +23,14 @@ xhr.setRequestHeader('x-rapidapi-host', 'country-state-city-search-rest-api.p.ra
 xhr.send(data);
 
 function populateHeader(jsonObj){
+	var myLabel = document.createElement('label');
+	myLabel.textContent = "Select Country";
+	header.appendChild(myLabel);
+	var selectCountryList = document.createElement('select');
+	header.appendChild(selectCountryList);
 	for(let i = 0; i < jsonObj.length; i++){
-		var myH1 = document.createElement('h1');
-		myH1.textContent = jsonObj[i]['name'];
-		header.appendChild(myH1);
+		var myOption = document.createElement('option');
+		myOption.textContent = jsonObj[i]['name'];
+		selectCountryList.appendChild(myOption);
 	}
 }
