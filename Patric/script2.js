@@ -1,4 +1,5 @@
-var header=document.querySelector('header');
+// var header=document.querySelector('header');
+var selectCountryList = document.getElementById("city");
 
 const data = null;
 
@@ -12,7 +13,7 @@ xhr.addEventListener('readystatechange', function () {
 		//populateHeader(this.responseText);
 		const jsonData = JSON.parse(this.responseText);
 		console.log(jsonData);
-		populateHeader(jsonData)
+		populateHeaderJSON(jsonData)
 	}
 });
 
@@ -22,12 +23,12 @@ xhr.setRequestHeader('x-rapidapi-host', 'country-state-city-search-rest-api.p.ra
 
 xhr.send(data);
 
-function populateHeader(jsonObj){
-	var myLabel = document.createElement('label');
-	myLabel.textContent = "Select Country";
-	header.appendChild(myLabel);
-	var selectCountryList = document.createElement('select');
-	header.appendChild(selectCountryList);
+function populateHeaderJSON(jsonObj){
+	// var myLabel = document.createElement('label');
+	// myLabel.textContent = "Select Country";
+	// header.appendChild(myLabel);
+	// var selectCountryList = document.createElement('select');
+	// header.appendChild(selectCountryList);
 	for(let i = 0; i < jsonObj.length; i++){
 		var myOption = document.createElement('option');
 		myOption.textContent = jsonObj[i]['name'];
