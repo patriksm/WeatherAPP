@@ -1,38 +1,38 @@
-var header = document.querySelector('header');
-var section = document.querySelector('section');
+var header=document.querySelector('header');
+var section=document.querySelector('section');
 let myCity = "Riga";
 
 function validateForm() {
 	let myCity = document.forms["cityName"]["myCity"].value;
-	if (myCity == "") {
-		myCity = "Riga";
-	}
+		if (myCity == "") {
+			myCity = "Riga";
+		}
 	getResponse(myCity);
-}
+	}
 
 var x = document.getElementById('cityName');
 
-function getResponse(myCity) {
+function getResponse(myCity){
 	console.log(myCity);
-	var requestURL = `http://api.weatherapi.com/v1/current.xml?key=e511a13169c149a187e80707230310&q=${myCity}&aqi=yes`;
+	var requestURL=`http://api.weatherapi.com/v1/current.xml?key=e511a13169c149a187e80707230310&q=${myCity}&aqi=yes`;
 
 	var request = new XMLHttpRequest();
 
 	request.open('GET', requestURL);
 	console.log(request);
-	request.responseType = 'document';
+	request.responseType='document';
 	request.overrideMimeType("text/xml");
 
 	request.onload = () => {
 		if (request.readyState === request.DONE && request.status === 200) {
-			//console.log(request.response);
+		//console.log(request.response);
 			console.log(request.responseXML);
 			var myWeather = request.response;
 			populateHeaderXML(myWeather);
-		}
-	};
+	}
+};
 
-	request.send();
+request.send();
 }
 
 function populateHeaderXML(xmlObj) {
@@ -45,6 +45,6 @@ function populateHeaderXML(xmlObj) {
 	myH2.textContent = xmlObj.getElementsByTagName("temp_c")[0].childNodes[0].nodeValue;
 	header.appendChild(myH2);
 	var myIMG = document.createElement('img');
-	myIMG.src = "https:" + xmlObj.getElementsByTagName("icon")[0].childNodes[0].nodeValue;
+	myIMG.src = "https:"+xmlObj.getElementsByTagName("icon")[0].childNodes[0].nodeValue;
 	header.appendChild(myIMG);
 }
